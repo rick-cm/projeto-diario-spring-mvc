@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!-- Required meta tags -->
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- <!-- Bootstrap CSS -->
+<link type="text/css" rel="stylesheet"
+	href="/bootstrap/css/bootstrap.min.css">
+<title>Diario Online</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-12">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#">Diario Online</a>
+				<section layout:fragment="header"></section>
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2">
+			<section layout:fragment="menu-lateral"></section>
+		</div>
+		<div class="col-8">
+			<div th:if="${not #arrays.isEmpty(mensagens)}" th:class="${#arrays.length(mensagens) > 1} ? 'alert alert-danger' : 'alert alert-success'" role="alert">
+				<ul th:each="mensagem : ${mensagens}">
+					<li><span th:text="${mensagem}"></span></li>
+				</ul>
+			</div>
+			<div class="container">
+				<section layout:fragment="content">2 of 3 (wider)</section>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"
+		src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

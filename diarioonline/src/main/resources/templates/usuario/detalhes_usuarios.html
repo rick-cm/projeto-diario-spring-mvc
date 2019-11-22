@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragmentos/layoutPadrao}">
+<head>
+<title>Usuarios</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+	<section layout:fragment="header">
+		<a th:href="@{/}" class="btn btn-info">Inicio</a>
+		<a th:href="@{/usuarios}" class="btn btn-info">Lista de Usuários</a>
+	</section>
+	<section layout:fragment="content">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Codigo</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Email</th>
+					<th scope="col">Data Nascimento</th>
+					<th scope="col">Data Criacao</th>
+					<th scope="col">Ativo</th>
+				</tr>
+			</thead>
+			<tbody th:each="usuario : ${usuarios}">
+				<tr>
+					<td><span th:text="${usuario.codigo}"></span></td>
+					<td><span th:text="${usuario.nome}"></span></td>
+					<td><span th:text="${usuario.email}"></span></td>
+					<td><span th:text="${#dates.format(usuario.dataNascimento,'dd-MM-yyyy')}"></span></td>
+					<td><span th:text="${#dates.format(usuario.dataCriacao,'dd-MM-yyyy HH:mm')}"></span></td>
+					<td><span th:text="${usuario.enable} ? 'Sim' : 'Não'"></span></td>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>
