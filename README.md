@@ -1,2 +1,2 @@
 # projeto-diario-spring-mvc
-Projeto de um diário online utilizando Spring MVC, Data e Security - Em desenvolvimento.
+Projeto de um diário online utilizando Spring MVC, Data e Security - Projeto parado.
